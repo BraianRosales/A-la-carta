@@ -14,6 +14,6 @@
             <mat-icon matSuffix>lock</mat-icon>
             <mat-error> Contraseña invalida. </mat-error>
         </mat-form-field>
-        <button [routerLink]="['/home']" [ngClass]="{btnInvalid: loginForm.invalid}" [disabled]="loginForm.invalid" type="submit" mat-button>Enviar</button>
+        <button [ngClass]="{btnInvalid: loginForm.invalid}" [disabled]="loginForm.invalid" type="submit" mat-button>Enviar</button>
     </form>
 </div>
