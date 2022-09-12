@@ -3,6 +3,6 @@ export interface UserData {
     password: string;
 }
 
-export interface ObjToken {
+export interface Token {
     token: string;
 }

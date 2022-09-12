@@ -1,4 +1,4 @@
-$color-green: #125593;
+$color-blue: #125593;
 
 mat-icon {
     font-size: 25px !important;
@@ -9,7 +9,7 @@ mat-icon {
 
 .form-container {
     width: 100%;
-    height: 100%;
+    height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -31,13 +31,13 @@ mat-icon {
             font-size: 110px !important;
             margin-bottom: 55px;
             margin-top: 20px;
-            color: $color-green;
+            color: $color-blue;
         }
 
         .login-title {
             font-size: 25px;
             margin: 35px;
-            color: $color-green;
+            color: $color-blue;
         }
 
         mat-form-field {
@@ -46,7 +46,7 @@ mat-icon {
         }
 
         button {
-            background: $color-green;
+            background: $color-blue;
             color: white;
             width: 80%;
             font-size: 18px;
@@ -62,4 +62,22 @@ mat-icon {
     form:hover {
         box-shadow: 0px 0px 10px 1px darkblue;
     }
+}
+
+::ng-deep .mat-progress-spinner circle,
+.mat-spinner circle {
+    stroke: $color-blue;
+}
+
+::ng-deep .swal2-actions{
+    margin: 0px!important;
+}
+
+::ng-deep .swal2-styled.swal2-confirm{
+    background-color: $color-blue;
+    color: white;
+}
+
+::ng-deep .swal2-title{
+    color: red!important;
 }

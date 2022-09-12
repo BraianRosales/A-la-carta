@@ -1,19 +1,26 @@
 <div class="form-container">
     <form (ngSubmit)="onSubmit()" [formGroup]="loginForm">
         <mat-icon class="img-icon" matSuffix>account_circle</mat-icon>
-        <h1 class="login-title">Bienvenido A la carta</h1>
-        <mat-form-field appearance="outline">
-            <mat-label>Email</mat-label>
-            <input matInput placeholder="Ingrese email" type="email" formControlName="email">
-            <mat-icon matSuffix>account_circle</mat-icon>
-            <mat-error> Email no invalido. </mat-error>
-        </mat-form-field>
-        <mat-form-field appearance="outline">
-            <mat-label>Contraseña</mat-label>
-            <input matInput placeholder="Ingrese contraseña" formControlName="password">
-            <mat-icon matSuffix>lock</mat-icon>
-            <mat-error> Contraseña invalida. </mat-error>
-        </mat-form-field>
-        <button [ngClass]="{btnInvalid: loginForm.invalid}" [disabled]="loginForm.invalid" type="submit" mat-button>Enviar</button>
+        <h1 class="login-title">Bienvenido A la carta!</h1>
+            <div *ngIf="btnLoading;else send">
+                <mat-spinner></mat-spinner>
+            </div>
+            <ng-template #send>
+                <mat-form-field appearance="outline">
+                    <mat-label>Email</mat-label>
+                    <input matInput placeholder="Ingrese email" type="email" formControlName="email">
+                    <mat-icon matSuffix>account_circle</mat-icon>
+                    <mat-error>No contiene email</mat-error>
+                </mat-form-field>
+                <mat-form-field appearance="outline">
+                    <mat-label>Contraseña</mat-label>
+                    <input matInput placeholder="Ingrese contraseña" formControlName="password">
+                    <mat-icon matSuffix>lock</mat-icon>
+                    <mat-error>No contiene contraseña</mat-error>
+                </mat-form-field>
+                <button [ngClass]="{btnInvalid: loginForm.invalid}" [disabled]="loginForm.invalid" type="submit" mat-button>
+                    Enviar
+                </button>
+            </ng-template>
     </form>
 </div>
