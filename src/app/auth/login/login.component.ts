@@ -11,8 +11,6 @@ import Swal from 'sweetalert2';
   styleUrls: ['./login.component.scss'],
 })
 export class LoginComponent implements OnInit {
-  //User: challenge@alkemy.org
-  //Password: react
   loginForm!: FormGroup;
   error: unknown = '';
   /**Flag that maintains the button loading. */
@@ -29,8 +27,12 @@ export class LoginComponent implements OnInit {
       email: ['', [Validators.required]],
       password: ['', [Validators.required]],
     });
+    if (this.authService.tokenVerification()) {
+      this.router.navigate(['/home']);
+    }
   }
 
+  /**Method that saves the token in localStorage if apiResponse contains the token or else execute an alert with the error. */
   onSubmit() {
     const userData: UserData = {
       email: this.loginForm.get('email')!.value,
